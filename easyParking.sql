@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `easy_parking` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `easy_parking`;
 -- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: easy_parking
@@ -49,33 +47,6 @@ INSERT INTO `parqueadero` VALUES (1,'Easy Parking',10,'08:00:00','18:00:00',100,
 UNLOCK TABLES;
 
 --
--- Table structure for table `propietario`
---
-
-DROP TABLE IF EXISTS `propietario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `propietario` (
-  `id_propietario` int NOT NULL AUTO_INCREMENT COMMENT 'Código propietario',
-  `nombre_propietario` varchar(100) DEFAULT NULL COMMENT 'Nombre propietario',
-  `documento_propietario` varchar(20) DEFAULT NULL COMMENT 'Documento propietario',
-  `celular_propietario` double DEFAULT NULL COMMENT 'Celular propietario',
-  `placa_vehiculo_propietario` varchar(20) DEFAULT NULL COMMENT 'Placa vehículo propietario',
-  PRIMARY KEY (`id_propietario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `propietario`
---
-
-LOCK TABLES `propietario` WRITE;
-/*!40000 ALTER TABLE `propietario` DISABLE KEYS */;
-INSERT INTO `propietario` VALUES (1,'Jhonatan Ortiz','123456',3157759459,'abc-123');
-/*!40000 ALTER TABLE `propietario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `registro_parqueadero`
 --
 
@@ -90,11 +61,14 @@ CREATE TABLE `registro_parqueadero` (
   `tiempo_parqueo_min` int DEFAULT NULL COMMENT 'Tiempo de parqueo en minutos',
   `valor_parqueo` int DEFAULT NULL COMMENT 'Valor parqueo',
   `estado` tinyint DEFAULT NULL COMMENT 'Estado plaza (0 vacio / 1 ocupado)',
-  `id_propietario` int DEFAULT NULL COMMENT 'Código propietario vehículo',
+  `nombre_propietario` varchar(100) DEFAULT NULL COMMENT 'Código propietario vehículo',
+  `doc_propietario` int DEFAULT NULL,
+  `cel_propietario` int DEFAULT NULL,
+  `placa_vehiculo` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`id_registro_parqueo`),
   KEY `plaza` (`estado`),
-  KEY `id_propietario` (`id_propietario`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `id_propietario` (`nombre_propietario`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +77,7 @@ CREATE TABLE `registro_parqueadero` (
 
 LOCK TABLES `registro_parqueadero` WRITE;
 /*!40000 ALTER TABLE `registro_parqueadero` DISABLE KEYS */;
-INSERT INTO `registro_parqueadero` VALUES (1,'2021-09-17 08:50:23','2021-09-17 12:50:30',1,240,240000,0,1),(2,'2021-09-23 13:47:39','2021-09-17 14:47:39',2,60,60000,0,1),(3,'2021-09-24 13:45:09','2021-09-24 15:45:09',3,120,120000,0,1);
+INSERT INTO `registro_parqueadero` VALUES (1,'2021-09-17 08:50:23','2021-09-17 12:50:30',1,240,240000,0,'jhonatan ortiz',3456,3456,'sdf-234'),(2,'2021-09-23 13:47:39','2021-09-17 14:47:39',2,60,60000,0,'sagjg',235134,346,'ert-345'),(3,'2021-09-24 13:45:09','2021-09-24 15:45:09',3,120,120000,0,'dfgfdsh',45645,32453,'wer-765'),(5,'2021-09-29 14:29:02',NULL,4,NULL,NULL,1,'dfdh',456,2134,'bfo-22a'),(6,'2021-09-29 14:29:02',NULL,5,NULL,NULL,1,'dfhg',4456,16456,'dfg-34r'),(7,'2021-09-29 18:45:19',NULL,6,NULL,NULL,1,'selena rojas',234567,23456,'jhg-98i');
 /*!40000 ALTER TABLE `registro_parqueadero` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -116,4 +90,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-28 18:52:37
+-- Dump completed on 2021-09-29 21:57:14
