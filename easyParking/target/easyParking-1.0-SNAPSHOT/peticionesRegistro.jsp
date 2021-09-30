@@ -19,8 +19,10 @@ switch(proceso){
         r.setFecha_ingreso(request.getParameter("fecha_ingreso"));
         r.setNum_plaza(Integer.parseInt(request.getParameter("num_plaza")));
         r.setEstado(Integer.parseInt(request.getParameter("estado")));
-        r.setId_propietario(Integer.parseInt(request.getParameter("id_propietario")));
-
+        r.setNombre_propietario(request.getParameter("nombre_propietario"));
+        r.setDoc_propietario(Integer.parseInt(request.getParameter("doc_propietario")));
+        r.setCel_propietario(Integer.parseInt(request.getParameter("cel_propietario")));
+        r.setPlaca_vehiculo(request.getParameter("placa_vehiculo"));
         if(r.guardarRegistro()){
             respuesta += "\"" + proceso + "\": true";
         } else{
@@ -35,7 +37,6 @@ switch(proceso){
         r.setTiempo_parqueo(Integer.parseInt(request.getParameter("tiempo_parqueo")));
         r.setValor_parqueo(Integer.parseInt(request.getParameter("valor_parqueo")));
         if(r.actualizarRegistro()){
-            //si guarda bien el contacto, se concatena otros datos para el json
             respuesta += "\"" + proceso + "\": true";  // el \ se usa para concatenar en json indicando que se hizo el proceso (true)
         } else{
             respuesta += "\"" + proceso + "\": false";  // el \ se usa para concatenar en json indicando que NO se hizo el proceso (false)
@@ -56,21 +57,11 @@ switch(proceso){
         System.out.println("Listar Registros");
         List<registro> listaRegistros = r.listarRegistros();
         if(listaRegistros.isEmpty()){
-            respuesta += "\"" + proceso + "\": true,\"Registros\":[]"; //genera una lista vacia en el json
+            respuesta += "\"" + proceso + "\": true,\"Registros vacio\":[]"; //genera una lista vacia en el json
         } else{
             respuesta += "\"" + proceso + "\": true,\"Registros\":" + new Gson().toJson(listaRegistros); //guarda la lista en el json
         }
-        break;
-
-    case "obtenerRegistros":
-        System.out.println("Obtener Un Registro");
-        int id_registro = Integer.parseInt(request.getParameter("id_registro"));
-        if(r.obtenerRegistro(id_registro)){
-            respuesta += "\"" + proceso + "\": true,\"No hay registro con ese id\":[]"; //genera una lista vacia en el json
-        } else{
-            respuesta += "\"" + proceso + "\": true,\"Registro \":" + new Gson().toJson(obtenerRegistro); //guarda la lista en el json
-        }
-        break;
+        break;  
 
     default:
         respuesta += "\"ok\": false,";

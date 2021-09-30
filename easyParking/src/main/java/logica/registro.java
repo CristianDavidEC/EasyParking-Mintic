@@ -11,6 +11,7 @@ import java.util.List;
 import persistencia.ConexionBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -26,7 +27,10 @@ public class registro{
     private int tiempo_parqueo;
     private int valor_parqueo;
     private int estado;
-    private int id_propietario;
+    private String nombre_propietario;
+    private int doc_propietario;
+    private int cel_propietario;
+    private String placa_vehiculo;
 
     public registro() {
     }
@@ -87,20 +91,45 @@ public class registro{
         this.estado = estado;
     }
 
-    public int getId_propietario() {
-        return id_propietario;
+    public String getNombre_propietario() {
+        return nombre_propietario;
     }
 
-    public void setId_propietario(int id_propietario) {
-        this.id_propietario = id_propietario;
+    public void setNombre_propietario(String nombre_propietario) {
+        this.nombre_propietario = nombre_propietario;
     }
     
+    public int getDoc_propietario() {
+        return doc_propietario;
+    }
+
+    public void setDoc_propietario(int doc_propietario) {
+        this.doc_propietario = doc_propietario;
+    }
+    
+    public int getCel_propietario() {
+        return cel_propietario;
+    }
+
+    public void setCel_propietario(int cel_propietario) {
+        this.cel_propietario = cel_propietario;
+    }
+
+    public String getPlaca_vehiculo() {
+        return placa_vehiculo;
+    }
+
+    public void setPlaca_vehiculo(String placa_vehiculo) {
+        this.placa_vehiculo = placa_vehiculo;
+    }
     //metodos para el CRUD de Registro
     
     public boolean guardarRegistro(){
         ConexionBD conexion = new ConexionBD();
-        String sentencia = "INSERT INTO registro_parqueadero(fecha_ingreso, numero_plaza, estado, id_propietario)"
-        + "VALUES ( '" + this.fecha_ingreso + "','" + this.num_plaza + "','" + this.estado + "','" + this.id_propietario + "');  ";
+        String sentencia = "INSERT INTO registro_parqueadero(fecha_ingreso, numero_plaza, estado, "
+        + "nombre_propietario, doc_propietario, cel_propietario, placa_vehiculo)"
+        + "VALUES ( '" + this.fecha_ingreso + "','" + this.num_plaza + "','" + this.estado + "',"
+        + "'" + this.nombre_propietario + "','" + this.doc_propietario + "','" + this.cel_propietario +"','" + this.placa_vehiculo + "');";
         //Vamos a configurar el setAutocommit de la conexionBD a falso
         if(conexion.setAutoCommitBD(false)){
             if(conexion.insertarBD(sentencia)){
@@ -176,7 +205,10 @@ public class registro{
             registro.setTiempo_parqueo(datos.getInt("tiempo_parqueo_min"));
             registro.setValor_parqueo(datos.getInt("valor_parqueo"));
             registro.setEstado(datos.getInt("estado"));
-            registro.setId_propietario(datos.getInt("id_propietario"));
+            registro.setNombre_propietario(datos.getString("nombre_propietario"));
+            registro.setDoc_propietario(datos.getInt("doc_propietario"));
+            registro.setCel_propietario(datos.getInt("cel_propietario"));
+            registro.setPlaca_vehiculo(datos.getString("placa_vehiculo"));
             
             listaRegistros.add(registro);
             
@@ -198,7 +230,10 @@ public class registro{
             registro.setTiempo_parqueo(datos.getInt("tiempo_parqueo_min"));
             registro.setValor_parqueo(datos.getInt("valor_parqueo"));
             registro.setEstado(datos.getInt("estado"));
-            registro.setId_propietario(datos.getInt("id_propietario"));
+            registro.setNombre_propietario(datos.getString("nombre_propietario"));
+            registro.setDoc_propietario(datos.getInt("doc_propietario"));
+            registro.setCel_propietario(datos.getInt("cel_propietario"));
+            registro.setPlaca_vehiculo(datos.getString("placa_vehiculo"));
             return registro;
         } else{
             conexion.closeConnection();
