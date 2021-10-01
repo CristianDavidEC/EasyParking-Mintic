@@ -44,7 +44,7 @@ switch(proceso){
         break;
 
     case "borrarRegistro":
-        System.out.println("Eliminar Registro");
+        System.out.println("Borrar Registro");
         int id_registro_parqueo = Integer.parseInt(request.getParameter("id_registro"));
         if(r.borrarRegistro(id_registro_parqueo)){
          respuesta += "\"" + proceso + "\": true";  // el \ se usa para concatenar en json indicando que se hizo el proceso (true)
