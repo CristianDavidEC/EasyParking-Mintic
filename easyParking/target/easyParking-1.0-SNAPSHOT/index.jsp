@@ -110,6 +110,6 @@
                 </div>
             </div>
         </div>
-        <script src="controladorRegistro.js"></script>
+        <script src="controladorRe.js"></script>
     </body>
 </html>

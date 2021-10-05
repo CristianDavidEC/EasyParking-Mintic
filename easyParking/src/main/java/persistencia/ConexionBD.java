@@ -32,7 +32,7 @@ public class ConexionBD {
         db = "easy_parking";
         url = "jdbc:mysql://" + host + "/" + db;
         username = "root";
-        password = "3157759459";
+        password = "130920";
 
         //Siempreo que se realice algo en la BD se hace en un bloque try/catch
         try {
