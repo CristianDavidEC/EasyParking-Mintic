@@ -31,7 +31,7 @@ page import="java.io.*,java.util.*" %> <%@ page
         <body>
             <div ng-app="easyParking" ng-controller="controladorRegistro">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
+                    <div class="container">
                         <a class="navbar-brand">
                             <img
                                 src="img/logo.png"
@@ -69,16 +69,22 @@ page import="java.io.*,java.util.*" %> <%@ page
                         </div>
                     </div>
                 </nav>
-                <div>
-                    <h2>GESTIÓN DE PARQUEADERO</h2>
-                    <button
-                        type="button"
-                        class="btn btn-primary"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        >
-                        Registrar
-                    </button>
+                <div class="container">
+                    <div class="row m-3">
+                        <div class="col-10">
+                            <h2>GESTIÓN DE PARQUEADERO</h2>
+                        </div>
+                        <div class="col-2 ps-5">
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                >
+                                <i class="fa fa-car" aria-hidden="true"></i> Parquear
+                            </button>
+                        </div>
+                    </div>
                     <table class="table">
                         <thead>
                             <tr>
