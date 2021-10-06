@@ -4,14 +4,12 @@
  * and open the template in the editor.
  */
 package persistencia;
-
+//Hola
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
- * 
  *
  * @author Natan Ortiz Lozano
  */
@@ -34,7 +32,7 @@ public class ConexionBD {
         db = "easy_parking";
         url = "jdbc:mysql://" + host + "/" + db;
         username = "root";
-        password = "130920";
+        password = "3157759459";
 
         //Siempreo que se realice algo en la BD se hace en un bloque try/catch
         try {
