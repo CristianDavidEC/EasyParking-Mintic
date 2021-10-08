@@ -1,0 +1,46 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5/10/2021, 9:53:47 p. m.
+    Author     : Cristian David
+*/
+
+
+.barraNav{
+    background: #8CAFEB;   
+}
+
+
+.color1{
+    background: #4F6C9E;
+    color:white;
+}
+
+.color1:hover{
+    background: #3D669E;
+    color:white;
+}
+
+.color2{
+    background: #EBE983;
+    color: darkslategray;
+}
+
+.color2:hover{
+    background: #D4D27F;
+    color:white;
+}
+
+.color3{
+    background: #E99292;
+    color:darkslategray;
+}
+
+.color3:hover{
+    background: #EB6C6C;
+    color:white;
+}
+
