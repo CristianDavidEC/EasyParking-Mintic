@@ -9,17 +9,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>JSP Page</title>
+        <title>EasyParkig - Login</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="font/font-awesome-4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="font/font-awesome-4.7.0/css/font-awesome.css" />
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <link href="img/logo.png" rel="icon">
     </head>
     <body>
         <img src="img/fondo.jpg" style="position: absolute;width: 100%;height: 100%;">
         <div clas="row">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light barraNav">
                 <div class="container">
                     <a class="navbar-brand">
                         <img src="img/logo.png" class="d-inline-block align-text-top" alt="" width="30" height="24"/>
@@ -35,7 +37,7 @@
             <div class="row mt-5">
                 <div class="col-5">
                     <div class="card p-3" style="margin-top: 25%;" ng-app="easyParking" ng-controller="controladorRegistro">
-                        <h5 class="text-center">LOGIN</h5>
+                        <h5 class="text-center">Login - EasyParking</h5>
                         <form>
                             <div class="form-group">
                                 <label>Usuario</label>
@@ -46,7 +48,7 @@
                                 <input type="password" class="form-control" ng-model="clave" required>
                             </div>
                             <div class="form-group mt-3">
-                                <button type="submit" class="btn btn-primary" ng-click="ingresar()">Ingresar</button>
+                                <button type="submit" class="btn color1" ng-click="ingresar()"><i class="fa fa-arrow-right"></i> Ingresar</button>
                             </div>
                         </form>
                     </div>
